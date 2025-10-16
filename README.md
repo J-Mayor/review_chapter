@@ -320,6 +320,23 @@ literature_search:
 - requests
 - LaTeX distribution (for PDF compilation)
 
+## Testing
+
+Run the comprehensive test suite to verify installation:
+
+```bash
+python test_suite.py
+```
+
+This tests:
+- Module imports
+- Configuration loading
+- Citation management
+- Document generation
+- Provenance tracking
+- Survey table generation
+- File I/O operations
+
 ## Contributing
 
 Contributions are welcome! Please:
