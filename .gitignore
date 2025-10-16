@@ -63,3 +63,6 @@ example_*.tex
 example_*.md
 example_*.bib
 example_*.json
+
+# Demo outputs
+demo_output/
