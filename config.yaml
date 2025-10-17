@@ -1,0 +1,173 @@
+# Configuration for TF PV Literature Review System
+# Tully-Fisher Peculiar Velocity Survey Review Configuration
+
+# Review metadata
+review:
+  title: "Tully-Fisher Peculiar Velocity Surveys and Cosmological Applications"
+  short_title: "TF PV Surveys"
+  target_venue: "PASA"  # Options: PASA, ARA&A, Living Reviews, A&A Review, arXiv
+  word_count_min: 12000
+  word_count_max: 20000
+  
+# Author information
+authors:
+  - name: "First Author"
+    affiliations: [1]
+    email: "author1@inst.edu"
+  - name: "Second Author"
+    affiliations: [1, 2]
+    email: "author2@inst.edu"
+
+affiliations:
+  - id: 1
+    name: "Department, Institution, Street address, City, Country"
+  - id: 2
+    name: "Department, Institution, Street address, City, Country"
+
+# Writing style and scope
+scope:
+  strict_tf_focus: true  # If false, include FP and SNe Ia PV for context
+  include_ska_forecasts: true
+  include_simulations: true
+  include_historical: true
+  balance_theory_vs_surveys: 0.5  # 0=all theory, 1=all surveys
+  
+# Figure and table budget
+figures:
+  max_count: 12
+  required_figures:
+    - "TF PV survey timeline"
+    - "Survey comparison table"
+    - "PV power spectrum examples"
+    - "fσ8 constraints compilation"
+    - "SKA forecast plots"
+    
+tables:
+  max_count: 8
+  required_tables:
+    - "Major TF PV surveys catalog"
+    - "Method comparison"
+    - "Cosmological constraints summary"
+
+# LaTeX configuration
+latex:
+  document_class: "article"
+  class_options: "a4paper,11pt"
+  bibliography_style: "abbrvnat"
+  use_natbib: true
+  max_authors_in_citation: 4
+
+# Citation and reference management
+citations:
+  require_ads_bibcode: true
+  require_doi_when_available: true
+  require_arxiv_id_when_available: true
+  verify_urls: true
+  max_verification_retries: 3
+  verification_timeout_seconds: 10
+  
+# Literature search configuration
+literature_search:
+  databases:
+    - "NASA/ADS"
+    - "arXiv"
+    - "Crossref"
+  
+  # Core search queries for ADS
+  ads_queries:
+    - "Tully-Fisher peculiar velocities"
+    - "peculiar velocity surveys Tully Fisher"
+    - "baryonic Tully-Fisher velocity field"
+    - "Cosmicflows"
+    - "2MTF"
+    - "SFI++"
+    - "6dFGSv Tully Fisher"
+    - "HI linewidth TF peculiar velocity"
+    - "PV power spectrum TF"
+    - "Malmquist bias TF"
+    - "inclination corrections TF"
+    - "Wiener filter velocity reconstruction"
+    - "SKA TF peculiar velocities forecast"
+    - "HI TF SKA1-MID"
+    - "HIPASS TF"
+    - "ALFALFA Tully-Fisher"
+    
+  # Time range for searches
+  year_range:
+    start: 1977  # Original Tully-Fisher paper
+    end: 2025
+    
+  # Inclusion/exclusion criteria
+  inclusion_criteria:
+    - "Directly relevant to TF PV science"
+    - "Methodological significance for PV surveys"
+    - "Novel data or substantial sample size"
+    - "Important calibration or systematics work"
+    - "SKA forecasts and pathfinder results"
+    
+  exclusion_criteria:
+    - "Out of scope (not TF or PV related)"
+    - "Superseded without adding insight"
+    - "Conference abstracts only (unless seminal)"
+    - "Duplicate or minor variations"
+
+# Iteration and versioning
+iterations:
+  versions:
+    - name: "v0.1_outline"
+      description: "Initial outline and structure"
+    - name: "v0.2_lit_map"
+      description: "Literature mapping and query results"
+    - name: "v0.9_draft1"
+      description: "First complete draft"
+    - name: "v0.95_draft2"
+      description: "Second draft with revisions"
+    - name: "v1.0_near_final"
+      description: "Near-final version"
+      
+  critique_rubric:
+    coverage: 5
+    accuracy: 5
+    coherence: 5
+    scientific_grounding: 5
+    balance: 5
+    ska_focus: 5
+
+# SKA forecast parameters
+ska_forecasts:
+  instruments:
+    - name: "SKA1-MID"
+      frequency_range: [0.35, 1.05]  # GHz
+      angular_resolution: 1.0  # arcsec at 1.4 GHz
+      
+    - name: "SKA1-SUR"
+      frequency_range: [0.35, 3.05]  # GHz
+      angular_resolution: 1.0  # arcsec at 1.4 GHz
+      
+  pathfinders:
+    - "ASKAP"
+    - "MeerKAT"
+    - "APERTIF"
+    
+  assumptions:
+    cosmology: "Planck2018"
+    hi_linewidth_precision: "model-dependent"
+    inclination_error_model: "geometric"
+    
+# Output files
+outputs:
+  main_tex: "review.tex"
+  main_md: "review.md"
+  bibliography: "references.bib"
+  citation_ledger: "citation_ledger.json"
+  queries_log: "queries_and_provenance.md"
+  changelog: "CHANGELOG.md"
+  figures_dir: "figures"
+  tables_dir: "tables"
+  
+# Reproducibility
+reproducibility:
+  save_search_queries: true
+  save_inclusion_decisions: true
+  version_control_assets: true
+  document_assumptions: true
